@@ -35,4 +35,33 @@ router.get("/market", function(req, res) {
     res.render("news", { Article: articles });
   });
 });
+
+/* show news for a single market */
+router.post("/company/news", function(req, res) {
+  var query = {
+    input: req.body.id
+  };
+
+  var thisCompany = req.body.id;
+
+  var options = {
+    url:
+      "https://api.iextrading.com/1.0/stock/" + thisCompany + "/news/last/20",
+    method: "GET"
+  };
+
+  request(options, function(err, request, body) {
+
+    var jsonBody = JSON.parse(body);
+
+    var articles = jsonBody.map(function(data) {
+      return new Article(data);
+    });
+
+    console.log("ARTICLES: " + { Article: articles });
+    res.render("news", { Article: articles });
+  });
+});
+
+
 module.exports = router;

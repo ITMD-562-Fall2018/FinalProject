@@ -11,38 +11,6 @@ router.get("/", (req, res) => {
   console.log("rendering search");
 });
 
-/* show news for a single market */
-router.post("/company/news", function(req, res) {
-  var query = {
-    input: req.body.id
-  };
-
-  var thisCompany = req.body.id;
-  //  console.log(thisCompany);
-
-  var options = {
-    url:
-      "https://api.iextrading.com/1.0/stock/" + thisCompany + "/news/last/20",
-    method: "GET"
-  };
-  //console.log(options)
-
-  request(options, function(err, request, body) {
-    //  console.log("BODY: " + body);
-
-    var jsonBody = JSON.parse(body);
-    //  console.log(jsonBody);
-
-    var articles = jsonBody.map(function(data) {
-      //    console.log(articles);
-      return new Article(data);
-    });
-
-    console.log("ARTICLES: " + { Article: articles });
-    res.render("news", { Article: articles });
-  });
-});
-
 // @route   GET /api/search/stock
 // @desc    Display search view
 //@view     search-stock
