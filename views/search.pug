@@ -1,8 +1,8 @@
 extends layout.pug
 
 block content
-  h1.mt-5= Search
-  h2.mt-5= "Search by..."
+  include ./partials/inAppNav.pug
+  h1.mt-2= "Search by..."
   section(style='padding:10px 0')
     a.btn.btn-primary.mr-4.mb-3(href='./search/stock') Company
     a.btn.btn-primary.mr-4.mb-3(href='./stock') Symbol

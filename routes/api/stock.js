@@ -7,6 +7,10 @@ var request = require("request");
 
 var session = "";
 
+// Route: api/stock
+
+const { ensureAuthenticated } = require("../../helpers/auth");
+
 /* view the financial reports for a particular company */
 /* with parameters for searching different ranges */
 router.get("/financials", (req, res) => {
@@ -20,7 +24,7 @@ router.get("/market", (req, res) => {
   console.log("rendering market stats");
 });
 
-router.get("/", (req, res) => {
+router.get("/", ensureAuthenticated, (req, res) => {
   res.render("find-stock", { title: "Find Stock", company: {} });
   console.log(req.body.id);
 });
@@ -49,7 +53,7 @@ router.post("/", function(req, res) {
     jsonBody.user = session;
     if (!jsonBody.Message) {
       var newStocks = new Stock(jsonBody);
-
+      newStocks.user = req.user;
       newStocks.save(function(err) {
         if (err) {
           throw err;
@@ -59,6 +63,9 @@ router.post("/", function(req, res) {
         }
       });
       //   res.render('landingpage',{company:newStocks})
+    } else {
+      req.flash("error", "Company not found!");
+      res.redirect("/api/stock");
     }
   });
 });

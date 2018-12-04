@@ -39,6 +39,9 @@ const favSchema = new Schema({
   DateCreated: {
     type: Date,
     default: Date.now
+  },
+  user: {
+    type: Object
   }
 });
 

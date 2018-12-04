@@ -43,7 +43,7 @@ const stockSchema = new Schema({
     default: Date.now
   },
   user: {
-    type: String
+    type: Object
   }
 });
 

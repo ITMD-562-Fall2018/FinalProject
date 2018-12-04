@@ -4,8 +4,12 @@ const request = require("request");
 
 var Article = require("../../models/MarketNews");
 
+// Route: api/news
+
+const { ensureAuthenticated } = require("../../helpers/auth");
+
 /* show news on market */
-router.get("/", (req, res) => {
+router.get("/", ensureAuthenticated, (req, res) => {
   res.render("news", { title: "news", query: {} });
   console.log("loading news");
 });
@@ -13,7 +17,7 @@ router.get("/", (req, res) => {
 // @route   GET api/posts
 // @desc    Get news articles for entire market
 // @access  Public
-router.get("/market", function(req, res) {
+router.get("/market", ensureAuthenticated, function(req, res) {
   var query = {
     symbol: req.body.id
   };

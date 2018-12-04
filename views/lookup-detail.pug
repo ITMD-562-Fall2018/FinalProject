@@ -13,5 +13,8 @@ block content
         tr
           td= company.Name
           td
-            a(href='/stock/' + company.Symbol)= company.Symbol
+           form(method="POST" action="../stock")
+            .form-group
+              input#name.form-control(type='hidden', placeholder='Enter id', name="id", value=company.Symbol)
+              button(type='submit').btn.btn-outline-primary= company.Symbol
           td= company.Exchange

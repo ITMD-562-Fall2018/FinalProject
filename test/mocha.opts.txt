@@ -1,2 +1,2 @@
---require test / helpers
+--require test / *
     --reporter spec

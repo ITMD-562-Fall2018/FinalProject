@@ -1,7 +1,8 @@
 extends layout.pug
 
 block content
-  h1.mt-5= title
+  include ./partials/inAppNav.pug 
+  h1.mt-2= title
   form(method="POST")
     .form-group
       label(for='title') Company Name

@@ -40,6 +40,7 @@ module.exports = function(app) {
       var jsonBody = JSON.parse(body);
       if (!jsonBody.Message) {
         var newStock = new stockModel(jsonBody);
+        newStock.user = req.user;
         newStock.save(function(err) {
           if (err) {
             throw err;

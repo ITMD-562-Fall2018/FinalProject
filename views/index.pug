@@ -1,14 +1,8 @@
 extends layout.pug
 
 block content
-  h1.mt-5 Favorites
-  nav(style='padding:10px 0')
-    a.btn.btn-primary.mb-3(href='./api/search' style='margin-left: 0; margin-bottom:15px') Search
-    a.btn.btn-primary.ml-5.mb-3(href='./api/history') History
-    a.btn.btn-primary.ml-5.mb-3(href='./api/marketNews') News
-    a.btn.btn-primary.ml-5.mb-3(href='./logout') Logout
-
-    a.btn.btn-secondary.btn-sm.mb-2(href='./api/charts') Interactive Chart
+  include ./partials/inAppNav.pug
+  h1.mt-2 Favorites
   table.table
     thead
       tr
@@ -19,6 +13,7 @@ block content
         th(scope='col') High
         th(scope='col') Low
         th(scope='col') Open
+        th(scope='col')
     tbody
       each company in stocks
         tr
@@ -29,3 +24,7 @@ block content
           td= company.High
           td= company.Low
           td= company.Open
+          td 
+            form(method='POST' action='./favorites/'+company.Symbol+"?_method=DELETE")
+              button.btn.btn-default.btn-md.bg-danger.text-white.font-weight-bold(type='submit')
+                | Delete

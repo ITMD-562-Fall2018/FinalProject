@@ -10,6 +10,10 @@ var userSchema = new Schema({
   },
   Email: {
     type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 

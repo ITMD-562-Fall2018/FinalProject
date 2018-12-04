@@ -4,7 +4,11 @@ var request = require("request");
 
 var marketCompany = require("../../models/MarketCompany");
 
-router.get("/gainers", function(req, res) {
+const { ensureAuthenticated } = require("../../helpers/auth");
+
+// Route: api/markets
+
+router.get("/gainers", ensureAuthenticated, function(req, res) {
   /* top gaining */
   var options = {
     url: "https://api.iextrading.com/1.0/stock/market/list/gainers",
@@ -25,7 +29,7 @@ router.get("/gainers", function(req, res) {
   });
 });
 
-router.get("/losers", function(req, res) {
+router.get("/losers", ensureAuthenticated, function(req, res) {
   /* loseing */
   var options = {
     url: "https://api.iextrading.com/1.0/stock/market/list/losers",
@@ -43,7 +47,7 @@ router.get("/losers", function(req, res) {
   });
 });
 
-router.get("/inFocus", function(req, res) {
+router.get("/inFocus", ensureAuthenticated, function(req, res) {
   /* in focus */
   var options = {
     url: "https://api.iextrading.com/1.0/stock/market/list/infocus",

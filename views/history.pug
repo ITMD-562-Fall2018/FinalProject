@@ -1,7 +1,8 @@
 extends layout.pug
 
 block content
-  h1.mt-5 Stocks
+  include ./partials/inAppNav.pug
+  h1.mt-2 Stocks
   table.table
     thead
       tr
@@ -14,6 +15,7 @@ block content
         th(scope='col') Open
         th(scope='col') By
         th(scope='col') Search Time
+        th(scope='col')
     tbody
       each company in stocks
         tr
@@ -24,5 +26,9 @@ block content
           td= company.High
           td= company.Low
           td= company.Open
-          td= company.user
+          td= company.user.Name
           td= company.DateCreated
+          td 
+            form(method='POST' action='./history/'+company.Symbol+'/'+company.LastPrice+"?_method=DELETE")
+              button.btn.btn-default.btn-md.bg-danger.text-white.font-weight-bold(type='submit')
+                | Delete
