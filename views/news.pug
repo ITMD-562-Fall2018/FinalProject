@@ -5,7 +5,7 @@ block content
   h1.mt-2 Market News
   section.mt-4#byCompany
     h4 Search for news by company
-    form.form-inline#search(method="POST" action="/api/news/company", name="search")
+    form.form-inline#search(method="POST" action="./company", name="search")
       .form-group
         input#name.form-control(type="text", placeholder='aapl, abc', name='id')
         button.btn.btn-default.ml-3.font-weight-bold(type='submit') View

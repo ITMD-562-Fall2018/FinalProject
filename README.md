@@ -6,7 +6,23 @@ Application was created by [Jarron Bailey](https://github.com/jarronb), [Abigail
 
 <!-- Description -->
 
-<!-- ## Quick Overview -->
+## Quick Overview
+
+Digging into what this projects holds.  
+This project features Continuous Integration stemming from [Mocha](https://mochajs.org/), [Chai](https://www.chaijs.com/), and [Travis CI](https://travis-ci.org/).
+
+The app utilizes the [Passport Local Strategy](https://github.com/jaredhanson/passport-local) and [Bcryptjs](https://github.com/dcodeIO/bcrypt.js/blob/master/README.md) libaries to create a saftey measure when storing users passwords.
+
+Another feature of using [Passport](http://www.passportjs.org/) is the abilty to created authenticated routes once you get the authenticated user from passport.
+
+The application also features flash messages after a certain action this was done usin the the [connect-flash](https://github.com/jaredhanson/connect-flash) library.
+
+## Features
+
+1. Heroku Deployment:
+2. Encrypted passwprds
+3. Authenticated permission for entering routes
+4. Notification messages after certain action within the application
 
 ## Getting Started
 
