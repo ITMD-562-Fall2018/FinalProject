@@ -41,7 +41,7 @@ router.get("/market", ensureAuthenticated, function(req, res) {
 });
 
 /* show news for a single market */
-router.post("/company/news", function(req, res) {
+router.post("/api/news/company", function(req, res) {
   var query = {
     input: req.body.id
   };
@@ -67,5 +67,6 @@ router.post("/company/news", function(req, res) {
   });
 });
 
+console.log("test1");
 
 module.exports = router;
