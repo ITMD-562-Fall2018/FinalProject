@@ -19,10 +19,20 @@ The application also features flash messages after a certain action this was don
 
 ## Features
 
-1. Heroku Deployment:
-2. Encrypted passwprds
+1. Heroku Deployment: [https://itmd565-fall2018.herokuapp.com/](https://itmd565-fall2018.herokuapp.com/)
+2. Encrypted passwords
 3. Authenticated permission for entering routes
 4. Notification messages after certain action within the application
+5. Adding, Deleting Favorite stocks
+6. Search overall market news
+7. Search for news related to a specific symbol
+8. Register, Delete user account
+9. View, Delete history of stocks searched
+10. Search for stock by company name
+11. Search for stock by company Symbol
+12. View top market Gainers
+13. View top market Losers
+14. View companies that are "In Focus"
 
 ## Getting Started
 
